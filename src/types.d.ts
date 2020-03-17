@@ -1,9 +1,12 @@
 
 type Todo = {
-  text: string;
-  complete: boolean
+  description: string;
+  completed: boolean;
+  id: string;
 }
 
 type ToggleTodo = (selectedTodo: Todo) => void
-
-type AddTodo = (newTodo: Todo) => void
+type AddTodoInput = {
+  description: string;
+}
+type AddTodo = (newTodo: AddTodoInput) => void

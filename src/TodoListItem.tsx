@@ -10,10 +10,10 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({todo, toggleTodo}) =>
   
   return (
     <li >
-      <label style={{textDecoration: todo.complete === true ? "line-through" : 'none'}}>
-          <input type="checkbox" checked={todo.complete} onChange={() => toggleTodo(todo)}/>    
+      <label style={{textDecoration: todo.completed=== true ? "line-through" : 'none'}}>
+          <input type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo)}/>    
             <p>
-              {todo.text}
+              {todo.description}
             </p>    
       </label>
     </li>
