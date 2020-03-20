@@ -11,7 +11,8 @@ const cache = new InMemoryCache({dataIdFromObject: (obj: any) => obj.projectID |
 
 const client = new ApolloClient({
   cache,
-  uri: "http://localhost:4500/graphql"
+  uri: "https://g8rcvhx1f9.execute-api.us-east-1.amazonaws.com/dev/graphql"
+  // uri: "http://localhost:4500/graphql"
 });
 
 const WithApollo = () => (

@@ -14,11 +14,13 @@ const GET_TODOS = gql`
   query{
     getTodos (userId: "a"){
       description
-      id,
+      id
       completed
     }
   }
 `
+
+
 
 const App: React.FC = () => {
 
@@ -26,25 +28,25 @@ const App: React.FC = () => {
   const { loading, error, data: responseQuery} = useQuery(GET_TODOS);
   const [todos, setTodos] = React.useState(initialState)
 
-  if(loading) return <p>...Loading</p>
-  if(error) throw new Error('Error fetching todos')
+
 
   const toggleTodo: ToggleTodo  = selectedTodo => {
     const newTodos = todos.map(todo => {
       console.log('todo',todo);
-    if(todo === selectedTodo){
-      return {
-        ...todo,  
-        completed:!todo.completed
+      if(todo === selectedTodo){
+        return {
+          ...todo,  
+          completed:!todo.completed
+        }
       }
-    }
-    return todo
-  })
+      return todo
+    })
     setTodos(newTodos)
   }
 
 
-  console.log('responseQuery',responseQuery.getTodos);
+  if(loading) return <p>...Loading</p>
+  if(error) throw new Error('Error fetching todos')
   return  (
     <>
       {/* <AddTodoForm addTodo={addTodo}/> */}
